@@ -2,6 +2,9 @@ import cv2
 
 CAMERA_INDEX = 1  # Change to the number that worked for you
 
+CUBE_TAG_IDS = {0, 1, 2, 3, 4, 5}
+HAND_TAG_ID = 6
+
 dictionary = cv2.aruco.getPredefinedDictionary(
     cv2.aruco.DICT_APRILTAG_36h11
 )
@@ -25,9 +28,13 @@ try:
 
         if ids is not None:
             cv2.aruco.drawDetectedMarkers(frame, corners, ids)
-            message = "Detected IDs: " + ", ".join(
-                str(tag_id) for tag_id in ids.flatten()
+            found = set(int(tag_id) for tag_id in ids.flatten())
+            cube_ids = sorted(found & CUBE_TAG_IDS)
+            hand_seen = HAND_TAG_ID in found
+            message = "Cube: " + (
+                ", ".join(str(tag_id) for tag_id in cube_ids) if cube_ids else "-"
             )
+            message += "   Hand: " + ("yes" if hand_seen else "no")
         else:
             message = "No tags detected"
 
