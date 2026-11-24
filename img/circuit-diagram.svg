@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" width="1200" height="830" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <!-- Ground symbol, origin at the connection point -->
+    <g id="gnd" stroke="#1f2937" stroke-width="2">
+      <line x1="0" y1="0" x2="0" y2="10"/>
+      <line x1="-12" y1="10" x2="12" y2="10"/>
+      <line x1="-8" y1="15" x2="8" y2="15"/>
+      <line x1="-4" y1="20" x2="4" y2="20"/>
+    </g>
+    <!-- Flex sensor (variable resistor), 80 tall, origin at top pin -->
+    <g id="flex">
+      <rect x="-11" y="0" width="22" height="80" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+      <line x1="-20" y1="66" x2="18" y2="12" stroke="#b91c1c" stroke-width="2" marker-end="url(#arrowRed)"/>
+    </g>
+    <!-- Fixed resistor, 80 tall, origin at top pin -->
+    <g id="res">
+      <rect x="-11" y="0" width="22" height="80" fill="#fff" stroke="#1f2937" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <rect width="1200" height="830" fill="#ffffff"/>
+  <text x="40" y="38" font-size="22" font-weight="700" fill="#111827">TagGrip glove circuit</text>
+  <text x="40" y="60" font-size="13" fill="#4b5563">Matching net labels (e.g. THUMB) are connected, the same way KiCad does it.</text>
+
+  <!-- ============ Section A: flex sensor dividers ============ -->
+  <text x="40" y="96" font-size="14" font-weight="700" fill="#1d4ed8">1 · Flex sensors as voltage dividers (×5)</text>
+
+  <g stroke="#1f2937" stroke-width="2" fill="none">
+    <line x1="80" y1="120" x2="590" y2="120"/>
+  </g>
+  <text x="40" y="125" font-size="13" font-weight="700" fill="#111827">+3V3</text>
+
+  <!-- Branch template repeated at x = 110, 230, 350, 470, 590 -->
+  <g id="branches" font-size="12" fill="#111827">
+    <!-- Thumb -->
+    <g transform="translate(110,0)">
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="120" x2="0" y2="140"/><line x1="0" y1="220" x2="0" y2="300"/><line x1="0" y1="260" x2="34" y2="260"/></g>
+      <circle cx="0" cy="120" r="4" fill="#1f2937"/><circle cx="0" cy="260" r="4" fill="#1f2937"/>
+      <use href="#flex" y="140"/><use href="#res" y="300"/>
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="380" x2="0" y2="395"/></g>
+      <use href="#gnd" y="395"/>
+      <text x="16" y="172">FLEX1</text><text x="16" y="188" fill="#6b7280">thumb</text>
+      <text x="16" y="336">R1</text><text x="16" y="352" fill="#6b7280">47kΩ</text>
+      <text x="38" y="264" font-weight="700" fill="#1d4ed8">THUMB</text>
+    </g>
+    <!-- Index -->
+    <g transform="translate(230,0)">
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="120" x2="0" y2="140"/><line x1="0" y1="220" x2="0" y2="300"/><line x1="0" y1="260" x2="34" y2="260"/></g>
+      <circle cx="0" cy="120" r="4" fill="#1f2937"/><circle cx="0" cy="260" r="4" fill="#1f2937"/>
+      <use href="#flex" y="140"/><use href="#res" y="300"/>
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="380" x2="0" y2="395"/></g>
+      <use href="#gnd" y="395"/>
+      <text x="16" y="172">FLEX2</text><text x="16" y="188" fill="#6b7280">index</text>
+      <text x="16" y="336">R2</text><text x="16" y="352" fill="#6b7280">47kΩ</text>
+      <text x="38" y="264" font-weight="700" fill="#1d4ed8">INDEX</text>
+    </g>
+    <!-- Middle -->
+    <g transform="translate(350,0)">
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="120" x2="0" y2="140"/><line x1="0" y1="220" x2="0" y2="300"/><line x1="0" y1="260" x2="34" y2="260"/></g>
+      <circle cx="0" cy="120" r="4" fill="#1f2937"/><circle cx="0" cy="260" r="4" fill="#1f2937"/>
+      <use href="#flex" y="140"/><use href="#res" y="300"/>
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="380" x2="0" y2="395"/></g>
+      <use href="#gnd" y="395"/>
+      <text x="16" y="172">FLEX3</text><text x="16" y="188" fill="#6b7280">middle</text>
+      <text x="16" y="336">R3</text><text x="16" y="352" fill="#6b7280">47kΩ</text>
+      <text x="38" y="264" font-weight="700" fill="#1d4ed8">MIDDLE</text>
+    </g>
+    <!-- Ring -->
+    <g transform="translate(470,0)">
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="120" x2="0" y2="140"/><line x1="0" y1="220" x2="0" y2="300"/><line x1="0" y1="260" x2="34" y2="260"/></g>
+      <circle cx="0" cy="120" r="4" fill="#1f2937"/><circle cx="0" cy="260" r="4" fill="#1f2937"/>
+      <use href="#flex" y="140"/><use href="#res" y="300"/>
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="380" x2="0" y2="395"/></g>
+      <use href="#gnd" y="395"/>
+      <text x="16" y="172">FLEX4</text><text x="16" y="188" fill="#6b7280">ring</text>
+      <text x="16" y="336">R4</text><text x="16" y="352" fill="#6b7280">47kΩ</text>
+      <text x="38" y="264" font-weight="700" fill="#1d4ed8">RING</text>
+    </g>
+    <!-- Pinky -->
+    <g transform="translate(590,0)">
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="140" x2="0" y2="120"/><line x1="0" y1="220" x2="0" y2="300"/><line x1="0" y1="260" x2="34" y2="260"/></g>
+      <circle cx="0" cy="260" r="4" fill="#1f2937"/>
+      <use href="#flex" y="140"/><use href="#res" y="300"/>
+      <g stroke="#1f2937" stroke-width="2"><line x1="0" y1="380" x2="0" y2="395"/></g>
+      <use href="#gnd" y="395"/>
+      <text x="16" y="172">FLEX5</text><text x="16" y="188" fill="#6b7280">pinky</text>
+      <text x="16" y="336">R5</text><text x="16" y="352" fill="#6b7280">47kΩ</text>
+      <text x="38" y="264" font-weight="700" fill="#1d4ed8">PINKY</text>
+    </g>
+  </g>
+
+  <!-- ============ Section B: ESP32 ============ -->
+  <rect x="790" y="90" width="190" height="370" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="885" y="116" font-size="15" font-weight="700" fill="#1d4ed8" text-anchor="middle">U1 · ESP32 DevKit</text>
+
+  <g font-size="12" fill="#111827">
+    <!-- Left pins -->
+    <g stroke="#1f2937" stroke-width="2">
+      <line x1="750" y1="150" x2="790" y2="150"/><line x1="750" y1="190" x2="790" y2="190"/>
+      <line x1="750" y1="240" x2="790" y2="240"/><line x1="750" y1="275" x2="790" y2="275"/>
+      <line x1="750" y1="310" x2="790" y2="310"/><line x1="750" y1="345" x2="790" y2="345"/>
+      <line x1="750" y1="380" x2="790" y2="380"/>
+    </g>
+    <text x="798" y="154">3V3</text>
+    <text x="798" y="194">GND</text>
+    <text x="798" y="244">GPIO36 (VP)</text>
+    <text x="798" y="279">GPIO39 (VN)</text>
+    <text x="798" y="314">GPIO34</text>
+    <text x="798" y="349">GPIO35</text>
+    <text x="798" y="384">GPIO32</text>
+    <g text-anchor="end" font-weight="700">
+      <text x="744" y="154">+3V3</text>
+      <text x="744" y="194">GND</text>
+      <text x="744" y="244" fill="#1d4ed8">THUMB</text>
+      <text x="744" y="279" fill="#1d4ed8">INDEX</text>
+      <text x="744" y="314" fill="#1d4ed8">MIDDLE</text>
+      <text x="744" y="349" fill="#1d4ed8">RING</text>
+      <text x="744" y="384" fill="#1d4ed8">PINKY</text>
+    </g>
+    <text x="798" y="412" font-size="11" fill="#6b7280">ADC1 pins: work with Wi-Fi on</text>
+
+    <!-- Right pins -->
+    <g stroke="#1f2937" stroke-width="2">
+      <line x1="980" y1="240" x2="1020" y2="240"/>
+      <line x1="980" y1="290" x2="1020" y2="290"/>
+      <line x1="980" y1="340" x2="1020" y2="340"/>
+    </g>
+    <g text-anchor="end">
+      <text x="972" y="244">GPIO25</text>
+      <text x="972" y="294">GPIO26</text>
+      <text x="972" y="344">GPIO27</text>
+    </g>
+    <g font-weight="700" fill="#047857">
+      <text x="1026" y="244">LED</text>
+      <text x="1026" y="294">MOTOR</text>
+      <text x="1026" y="344">BTN</text>
+    </g>
+    <text x="885" y="446" text-anchor="middle" fill="#111827">USB port</text>
+  </g>
+
+  <!-- USB to computer -->
+  <line x1="885" y1="460" x2="885" y2="560" stroke="#1f2937" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="895" y="505" font-size="12" fill="#4b5563">USB cable: power in,</text>
+  <text x="895" y="521" font-size="12" fill="#4b5563">serial data out</text>
+
+  <rect x="790" y="562" width="190" height="86" rx="6" fill="#f3f4f6" stroke="#1f2937" stroke-width="2"/>
+  <text x="885" y="590" font-size="14" font-weight="700" fill="#111827" text-anchor="middle">Computer</text>
+  <text x="885" y="610" font-size="12" fill="#4b5563" text-anchor="middle">Python: serial + AprilTags</text>
+  <text x="885" y="626" font-size="12" fill="#4b5563" text-anchor="middle">→ UDP → Unity</text>
+
+  <rect x="1010" y="562" width="160" height="86" rx="6" fill="#fff" stroke="#6b7280" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="1090" y="590" font-size="14" font-weight="700" fill="#111827" text-anchor="middle">Webcam</text>
+  <text x="1090" y="610" font-size="12" fill="#4b5563" text-anchor="middle">cube tags 0–5</text>
+  <text x="1090" y="626" font-size="12" fill="#4b5563" text-anchor="middle">hand tag 6</text>
+  <line x1="1010" y1="605" x2="982" y2="605" stroke="#1f2937" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ============ Section C: optional extras ============ -->
+  <rect x="30" y="460" width="720" height="350" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="48" y="488" font-size="14" font-weight="700" fill="#047857">2 · Optional extras (outputs + input)</text>
+
+  <!-- LED: LED net -> R6 -> D1 -> GND -->
+  <g font-size="12" fill="#111827">
+    <text x="48" y="544" font-weight="700" fill="#047857">LED</text>
+    <g stroke="#1f2937" stroke-width="2" fill="none">
+      <line x1="80" y1="540" x2="120" y2="540"/>
+      <rect x="120" y="530" width="60" height="20" fill="#fff"/>
+      <line x1="180" y1="540" x2="220" y2="540"/>
+      <polygon points="220,526 220,554 246,540" fill="#fff"/>
+      <line x1="246" y1="526" x2="246" y2="554"/>
+      <line x1="246" y1="540" x2="290" y2="540"/>
+      <line x1="290" y1="540" x2="290" y2="560"/>
+      <line x1="230" y1="522" x2="242" y2="508" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="240" y1="524" x2="252" y2="510" stroke-width="1.5" marker-end="url(#arrow)"/>
+    </g>
+    <use href="#gnd" x="290" y="560"/>
+    <text x="150" y="524" text-anchor="middle">R6 330Ω</text>
+    <text x="234" y="574" text-anchor="middle">D1</text>
+    <text x="48" y="604" fill="#4b5563">D1 LED lights while the hand is gripping.</text>
+  </g>
+
+  <!-- Button: BTN net -> SW1 -> GND (internal pull-up) -->
+  <g font-size="12" fill="#111827">
+    <text x="48" y="684" font-weight="700" fill="#047857">BTN</text>
+    <g stroke="#1f2937" stroke-width="2" fill="none">
+      <line x1="80" y1="680" x2="140" y2="680"/>
+      <circle cx="144" cy="680" r="4" fill="#fff"/>
+      <circle cx="196" cy="680" r="4" fill="#fff"/>
+      <line x1="138" y1="664" x2="202" y2="664"/>
+      <line x1="170" y1="664" x2="170" y2="650"/>
+      <line x1="200" y1="680" x2="290" y2="680"/>
+      <line x1="290" y1="680" x2="290" y2="700"/>
+    </g>
+    <use href="#gnd" x="290" y="700"/>
+    <text x="170" y="702" text-anchor="middle">SW1</text>
+    <text x="48" y="748" fill="#4b5563">SW1 push button: calibrate open / closed hand.</text>
+    <text x="48" y="764" fill="#4b5563">Uses the ESP32's internal pull-up, so no resistor needed.</text>
+  </g>
+
+  <!-- Haptic motor: MOTOR net -> R7 -> Q1 base; M1 + D2 between +3V3 and collector -->
+  <g font-size="12" fill="#111827">
+    <text x="392" y="516" font-size="13" font-weight="700" fill="#111827" text-anchor="middle">+3V3</text>
+    <g stroke="#1f2937" stroke-width="2" fill="none">
+      <!-- top node -->
+      <line x1="392" y1="522" x2="392" y2="530"/>
+      <line x1="392" y1="530" x2="640" y2="530"/>
+      <line x1="590" y1="530" x2="590" y2="552"/>
+      <line x1="660" y1="530" x2="640" y2="530"/>
+      <line x1="660" y1="530" x2="660" y2="545"/>
+      <!-- motor -->
+      <circle cx="590" cy="570" r="18" fill="#fff"/>
+      <line x1="590" y1="588" x2="590" y2="610"/>
+      <!-- bottom node -->
+      <line x1="590" y1="610" x2="660" y2="610"/>
+      <line x1="660" y1="610" x2="660" y2="595"/>
+      <!-- flyback diode, cathode up -->
+      <polygon points="648,595 672,595 660,571" fill="#fff"/>
+      <line x1="648" y1="569" x2="672" y2="569"/>
+      <line x1="660" y1="569" x2="660" y2="545"/>
+      <!-- collector down to transistor -->
+      <line x1="590" y1="610" x2="590" y2="640"/>
+      <line x1="590" y1="640" x2="572" y2="656"/>
+      <!-- transistor -->
+      <circle cx="578" cy="668" r="26" fill="#fff"/>
+      <line x1="568" y1="652" x2="568" y2="684"/>
+      <line x1="568" y1="658" x2="590" y2="644"/>
+      <line x1="568" y1="678" x2="588" y2="692" marker-end="url(#arrow)"/>
+      <line x1="590" y1="692" x2="590" y2="720"/>
+      <!-- base drive -->
+      <line x1="430" y1="668" x2="450" y2="668"/>
+      <rect x="450" y="658" width="60" height="20" fill="#fff"/>
+      <line x1="510" y1="668" x2="568" y2="668"/>
+    </g>
+    <text x="590" y="575" font-size="14" font-weight="700" text-anchor="middle">M</text>
+    <use href="#gnd" x="590" y="720"/>
+    <text x="378" y="672" font-weight="700" fill="#047857">MOTOR</text>
+    <text x="480" y="652" text-anchor="middle">R7 1kΩ</text>
+    <text x="545" y="574" text-anchor="end">M1</text>
+    <text x="680" y="586">D2</text>
+    <text x="616" y="708">Q1</text>
+    <text x="392" y="764" fill="#4b5563">M1 vibration motor buzzes when Unity's hand grabs the cube.</text>
+    <text x="392" y="780" fill="#4b5563">Q1 NPN (2N2222) switches it · D2 (1N4148) absorbs the</text>
+    <text x="392" y="796" fill="#4b5563">motor's voltage spike when it turns off.</text>
+  </g>
+</svg>

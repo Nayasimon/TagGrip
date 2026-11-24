@@ -60,6 +60,13 @@ crashlytics-build.properties
 **/Assets/StreamingAssets/aa/*
 *_BurstDebugInformation_DoNotShip/
 
+# ===== KiCad =====
+*.lck
+.history/
+*-backups/
+fp-info-cache
+*.kicad_prl
+
 # ===== Python =====
 __pycache__/
 *.py[cod]
